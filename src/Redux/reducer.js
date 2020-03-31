@@ -6,7 +6,7 @@ const appState = {   //userState
     selectedOmdb: {
         loading: false,
         data: [],
-        urlDetail: 'http://www.omdbapi.com/?apikey=421cb6d2&i=tt0458339'
+        urlDetail: 'https://www.omdbapi.com/?apikey=421cb6d2&i=tt0458339'
     }
 }
 

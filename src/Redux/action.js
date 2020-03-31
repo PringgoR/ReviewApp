@@ -7,7 +7,7 @@ export const fetchOmdb = () => ({
 export const fetchOmdbAction = () => {
     return (dispatch) => {
         dispatch(fetchOmdb())
-        axios.get('http://www.omdbapi.com/?apikey=421cb6d2&s=avenger')
+        axios.get('https://www.omdbapi.com/?apikey=421cb6d2&s=avenger')
         .then(res => {
             dispatch({
                 type: 'FETCH_OMDB_SUCCESS',
@@ -28,7 +28,7 @@ export const fetchMovieDetail = (params) => {
         dispatch({
             type: 'FETCH_OMDB_DETAIL'
         })
-        let link = 'http://www.omdbapi.com/?apikey=421cb6d2&i=tt0458339'+params
+        let link = 'https://www.omdbapi.com/?apikey=421cb6d2&i=tt0458339'+params
         axios.get(link)
         .then(res => {
             console.log(res,`<==== Res ====>`)
