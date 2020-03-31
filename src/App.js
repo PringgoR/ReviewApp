@@ -1,25 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
-function App() {
+//Pages
+import Landing from './Pages/Landing';
+import Navbar from './Pages/Navbar';
+import MovieDetails from './Pages/MovieDetails';
+// import CaptainAmerica from './Pages/CaptainAmerica';
+import reduxStore from './Redux/store';
+import history from './Pages/History';
+
+//Main application
+function App () {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+        <Provider store = {reduxStore}>
+           
+          <Router history={history}>
+          <Navbar /> 
+            <Switch>
+              <Route exact path="/" component={Landing} />
+              <Route path="/moviedetails" component={MovieDetails} />
+              {/* <Route path="/captainamerica" component={CaptainAmerica} /> */}
+            </Switch>
+          </Router>
+        </Provider>
+    </React.Fragment>
   );
 }
 
